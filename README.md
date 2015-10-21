@@ -2,6 +2,9 @@ SqsCommandQueueBundle
 =====================
 
 
+SqsCommandQueueBundle is a simple bundle, wich you can use, to **queue commands on amazon SQS**.
+This bundle then provides a worker, wich can be run on **several servers**, and will execute the commands, on one of the **several workers**.
+
 
 
 ### Step 1: Download BBITSqsCommandQueueBundle using composer
