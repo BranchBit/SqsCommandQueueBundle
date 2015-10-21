@@ -53,3 +53,13 @@ bbit_sqs_command_queue:
 
 ### Usage:
 
+Send a command to the queue: 
+```
+$container->get('sqs_queue')->addCommand('app/console cache:clear');
+```
+
+
+The worker:
+```
+app/console bbit:sqs-command-queue:work 
+```
