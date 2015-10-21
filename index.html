@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Sqscommandqueuebundle by BranchBit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Sqscommandqueuebundle</h1>
+      <h2 class="project-tagline">Queue-ing Symfony commands via Amazon Sqs</h2>
+      <a href="https://github.com/BranchBit/SqsCommandQueueBundle" class="btn">View on GitHub</a>
+      <a href="https://github.com/BranchBit/SqsCommandQueueBundle/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/BranchBit/SqsCommandQueueBundle/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="sqscommandqueuebundle" class="anchor" href="#sqscommandqueuebundle" aria-hidden="true"><span class="octicon octicon-link"></span></a>SqsCommandQueueBundle</h1>
+
+<p><a href="https://packagist.org/packages/bbit/sqs-command-queue-bundle"><img src="https://poser.pugx.org/bbit/sqs-command-queue-bundle/v/stable.png" alt="Latest Stable Version"></a></p>
+
+<p>SqsCommandQueueBundle is a simple bundle, wich you can use, to <strong>queue commands on amazon SQS</strong>.
+This bundle then provides a worker, wich can be run on <strong>several servers</strong>, and will execute the commands, on one of the <strong>several workers</strong>.</p>
+
+<h3>
+<a id="step-1-download-bbitsqscommandqueuebundle-using-composer" class="anchor" href="#step-1-download-bbitsqscommandqueuebundle-using-composer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 1: Download BBITSqsCommandQueueBundle using composer</h3>
+
+<p>Add BBITSqsCommandQueueBundle in your composer.json:</p>
+
+<div class="highlight highlight-source-js"><pre>{
+    <span class="pl-s"><span class="pl-pds">"</span>require<span class="pl-pds">"</span></span><span class="pl-k">:</span> {
+        <span class="pl-s"><span class="pl-pds">"</span>bbit/sqs-command-queue-bundle<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>dev-master<span class="pl-pds">"</span></span>,
+    }
+}</pre></div>
+
+<p>Now tell composer to download the bundle by running the command:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ php composer.phar update bbit/sqs-command-queue-bundlee</pre></div>
+
+<p>Composer will install the bundle to your project's <code>vendor/BBIT</code> directory.</p>
+
+<h3>
+<a id="step-2-enable-the-bundle" class="anchor" href="#step-2-enable-the-bundle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 2: Enable the bundle</h3>
+
+<p>Enable the bundle in the kernel:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// app/AppKernel.php</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">registerBundles</span>()</span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-smi">$bundles</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">        <span class="pl-c">// ...</span></span>
+<span class="pl-s1">        <span class="pl-k">new</span> <span class="pl-c1">BBIT\SqsCommandQueueBundle\</span><span class="pl-c1">BBITSqsCommandQueueBundle</span>(),</span>
+<span class="pl-s1">    );</span>
+<span class="pl-s1">}</span></pre></div>
+
+<h3>
+<a id="step-3-configure-the-bundle" class="anchor" href="#step-3-configure-the-bundle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3: Configure the bundle</h3>
+
+<pre><code>bbit_sqs_command_queue:
+    aws_sqs_key: xxx
+    aws_sqs_secret: xxxxxxxxx
+    aws_sqs_region: eu-central-1
+    aws_sqs_queue: https://sqs.eu-central-1.amazonaws.com/xx11xx11/xx-xx
+</code></pre>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage:</h3>
+
+<p>Send a command to the queue: </p>
+
+<pre><code>$container-&gt;get('sqs_queue')-&gt;addCommand('app/console cache:clear');
+</code></pre>
+
+<p>The worker:</p>
+
+<pre><code>app/console bbit:sqs-command-queue:work 
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/BranchBit/SqsCommandQueueBundle">Sqscommandqueuebundle</a> is maintained by <a href="https://github.com/BranchBit">BranchBit</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
