@@ -41,6 +41,15 @@ public function registerBundles()
 }
 ```
 
+### Step 3: Configure the bundle
+
+```
+bbit_sqs_command_queue:
+    aws_sqs_key: xxx
+    aws_sqs_secret: xxxxxxxxx
+    aws_sqs_region: eu-central-1
+    aws_sqs_queue: https://sqs.eu-central-1.amazonaws.com/xx11xx11/xx-xx
+```
 
 ### Usage:
 
