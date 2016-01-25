@@ -26,6 +26,5 @@
     },
     "autoload": {
         "psr-0": { "BBIT\\SqsCommandQueueBundle": "" }
-    },
-    "target-dir": "BBIT/SqsCommandQueueBundle"
+    }
 }
