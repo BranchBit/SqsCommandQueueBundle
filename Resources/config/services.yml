@@ -1,0 +1,8 @@
+services:
+    sqs_queue:
+        class: BBIT\SqsCommandQueueBundle\Service\SqsQueueService
+        arguments:
+            - %bbit_sqs_command_queue.aws_sqs_key%
+            - %bbit_sqs_command_queue.aws_sqs_secret%
+            - %bbit_sqs_command_queue.aws_sqs_region%
+            - %bbit_sqs_command_queue.aws_sqs_queue%
